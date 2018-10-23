@@ -1,0 +1,187 @@
+  [1m[35m (494.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (280.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateTodos (20161230004550)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "todos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "created_by" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161230004550"]]
+  [1m[35m (251.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateItems (20161230010224)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (8.0ms)[0m  [1m[35mCREATE TABLE "items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "done" boolean, "todo_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX "index_items_on_todo_id" ON "items" ("todo_id")[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161230010224"]]
+  [1m[35m (328.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateUsers (20170306191048)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "password_digest" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170306191048"]]
+  [1m[35m (289.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (3.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", 2018-10-22 11:20:53 UTC], ["updated_at", 2018-10-22 11:20:53 UTC]]
+  [1m[35m (356.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_items_on_todo_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_items_on_todo_id' AND type='index'
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", :environment]]
+DEPRECATION WARNING: Passing #original_exception is deprecated and has no effect. Exceptions will automatically capture the original exception. (called from require at bin/rails:9)
+  [1m[35m (408.8ms)[0m  [1m[35mCREATE TABLE "items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "done" boolean, "todo_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (210.9ms)[0m  [1m[35mCREATE  INDEX "index_items_on_todo_id" ON "items" ("todo_id")[0m
+  [1m[35m (211.9ms)[0m  [1m[35mCREATE TABLE "todos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "created_by" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (163.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "password_digest" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (250.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (267.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES ('20170306191048')[0m
+  [1m[35m (251.9ms)[0m  [1m[32mINSERT INTO schema_migrations (version) VALUES
+('20161230004550'),
+('20161230010224');
+
+[0m
+  [1m[35m (248.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (3.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", 2018-10-22 11:23:10 UTC], ["updated_at", 2018-10-22 11:23:10 UTC]]
+  [1m[35m (213.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for ::1 at 2018-10-22 13:58:49 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/railties-5.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/railties-5.0.1/lib/rails/templates/rails/welcome/index.html.erb (46.0ms)
+Completed 200 OK in 589ms (Views: 310.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/favicon.ico" for ::1 at 2018-10-22 13:58:52 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.2) lib/puma/configuration.rb:225:in `call'
+puma (3.6.2) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.2) lib/puma/server.rb:415:in `process_client'
+puma (3.6.2) lib/puma/server.rb:275:in `block in run'
+puma (3.6.2) lib/puma/thread_pool.rb:116:in `call'
+puma (3.6.2) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+Started GET "/todos" for ::1 at 2018-10-22 13:59:14 +0200
+Processing by TodosController#index as */*
+Completed 422 Unprocessable Entity in 21ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2018-10-22 14:25:31 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/railties-5.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/railties-5.0.1/lib/rails/templates/rails/welcome/index.html.erb (29.0ms)
+Completed 200 OK in 396ms (Views: 250.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos" for ::1 at 2018-10-22 14:26:03 +0200
+Processing by TodosController#index as */*
+Completed 422 Unprocessable Entity in 16ms (Views: 0.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/signup" for ::1 at 2018-10-22 14:27:55 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"name"=>"Pienaar", "email"=>"mom@email.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"name"=>"Pienaar", "email"=>"mom@email.com"}}
+Unpermitted parameter: user
+  [1m[35m (1.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (78.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Pienaar"], ["email", "mom@email.com"], ["password_digest", "$2a$10$UxMIhAbGuGscnkuDcjwmvevhByFwq2FRJh5udJVsDBjgOMkfgW5B6"], ["created_at", 2018-10-22 12:28:13 UTC], ["updated_at", 2018-10-22 12:28:13 UTC]]
+  [1m[35m (204.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mom@email.com"], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mom@email.com"], ["LIMIT", 1]]
+Completed 201 Created in 22561ms (Views: 0.3ms | ActiveRecord: 286.8ms)
+
+
+Started GET "/todos" for ::1 at 2018-10-22 14:30:56 +0200
+Processing by TodosController#index as */*
+Completed 422 Unprocessable Entity in 1ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/todos" for ::1 at 2018-10-22 14:31:56 +0200
+Processing by TodosController#create as HTML
+  Parameters: {"title"=>"Beethoven", "todo"=>{"title"=>"Beethoven"}}
+Completed 422 Unprocessable Entity in 1ms (Views: 0.8ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/todos/1" for ::1 at 2018-10-22 14:32:14 +0200
+  
+ActionController::RoutingError (No route matches [POST] "/todos/1"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.2) lib/puma/configuration.rb:225:in `call'
+puma (3.6.2) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.2) lib/puma/server.rb:415:in `process_client'
+puma (3.6.2) lib/puma/server.rb:275:in `block in run'
+puma (3.6.2) lib/puma/thread_pool.rb:116:in `call'
+puma (3.6.2) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+Started GET "/todos" for ::1 at 2018-10-22 14:38:44 +0200
+Processing by TodosController#index as */*
+Completed 422 Unprocessable Entity in 2ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos" for ::1 at 2018-10-22 14:42:43 +0200
+Processing by TodosController#index as */*
+Completed 422 Unprocessable Entity in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos" for ::1 at 2018-10-22 14:43:44 +0200
+Processing by TodosController#index as */*
+Completed 422 Unprocessable Entity in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos" for ::1 at 2018-10-22 14:44:06 +0200
+Processing by TodosController#index as */*
+Completed 422 Unprocessable Entity in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/todos" for ::1 at 2018-10-22 14:45:32 +0200
+Processing by TodosController#index as */*
+Completed 422 Unprocessable Entity in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms)
+
+

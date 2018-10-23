@@ -1,0 +1,57 @@
+Author: John McDougall       Name git: RESTfulRail2
+______                       ________
+
+Subject: Build a RESTful JSON API With Rail 2
+_______
+
+0. Gemfile
+----------
+
+gem install wdm
+   Add Gemfile: gem 'wdm', '>= 0.1.0'
+bundle install
+set TEMP=C:\Users\Jamconnect\AppData\Local\Temp
+set TMP=C:\Users\Jamconnect\AppData\Local\Temp
+
+1. Generate a user model
+------------------------
+
+# Generate a user model
+$ rails g model User name:string email:string password_digest:string
+
+# run the migrations
+$ rails db:migrate
+
+# make sure the test environment is ready
+$ rails db:test:prepare
+
+DONE.
+
+2. Define the user model spec
+-----------------------------
+Editing spec/models/user_spec.rb
+
+DONE.
+
+3. Add a user factory
+---------------------
+Add spec/factories/users.rb
+
+DONE.
+
+4. Edit app/models/user.rb
+--------------------------
+
+DONE.
+
+5. Gemfile add gem 'bcrypt'
+
+DONE
+
+6. Install the gem and run the tests
+------------------------------------
+
+$ bundle install
+$ bundle exec rspec
+
+DONE
